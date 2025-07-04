@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Fruitkha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+    <style>
+        body {
+            background-image: url("{% static 'img/products/market.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .register-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .register-card h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 0.5rem;
+        }
+
+        .btn-register {
+            background-color: #F28123;
+            border: none;
+            width: 100%;
+            padding: 0.5rem;
+            font-weight: bold;
+        }
+
+        .btn-register:hover {
+            background-color: #d76e0e;
+        }
+
+        .msg {
+            color: red;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .login-link a {
+            color: #F28123;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-card">
+        <h2 class="text-center">Create Your Account</h2>
+        <form action="{% url 'user_register' %}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" name="user_name" class="form-control" placeholder="Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password1" class="form-control" placeholder="Password" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="btn btn-register">Register</button>
+        </form>
+
+        {% if messages %}
+            <div class="msg">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="login-link">
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
