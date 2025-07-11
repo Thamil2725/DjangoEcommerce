@@ -45,14 +45,16 @@ This project is a fully functional e-commerce web application built using Django
 
 ## Project Structure
 
-'''ecommerce/
-├── accounts/ # User registration and authentication
-├── cart/ # Cart management logic
-├── panther_store/ # Product listing and detail views
-├── templates/ # HTML templates (Django Template Engine)
-├── static/ # Static assets (CSS, images)
-├── manage.py # Django entry point
-├── requirements.txt # Python dependencies'''
+```
+ecommerce/
+├── accounts/           # User registration and authentication
+├── cart/               # Cart management logic
+├── panther_store/      # Product listing and detail views
+├── templates/          # HTML templates (Django Template Engine)
+├── static/             # Static assets (CSS, images)
+├── manage.py           # Django entry point
+├── requirements.txt    # Python dependencies
+```
 
 # Setup Instructions
 
